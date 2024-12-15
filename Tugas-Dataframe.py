@@ -40,7 +40,7 @@ for index , row in df_sampah_thn_kab.iterrows():
         else:
             tot_sampah_prkab_perthn[(kab_kot,thn)] = row['jumlah_produksi_sampah']
 
-
+#Memprint hasil total sampah pertahun dan perkabupaten
 print("Total produksi sampah per kota/kabupaten dan per tahunnya:")
 for (kab_kot, tahun), total_sampah in tot_sampah_prkab_perthn.items():
     print(f"total sampah di Kota/Kabupaten: {kab_kot}, pada tahun {tahun}: {total_sampah:.2f} ton/hari")
