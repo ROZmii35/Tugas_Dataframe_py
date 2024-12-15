@@ -43,7 +43,7 @@ for index , row in df_sampah_thn_kab.iterrows():
 
 print("Total produksi sampah per kota/kabupaten dan per tahunnya:")
 for (kab_kot, tahun), total_sampah in tot_sampah_prkab_perthn.items():
-    print(f"total sampah di Kota/Kabupaten: {kab_kot}, pada tahun {tahun}: {total_sampah:.2f} ton")
+    print(f"total sampah di Kota/Kabupaten: {kab_kot}, pada tahun {tahun}: {total_sampah:.2f} ton/hari")
 # Membuat dataframe total sampah per kabupaten/kota dan per tahunnya
 df_tot_sampah_prkab = pd.DataFrame(list(tot_sampah_prkab_perthn.items()), columns=['Kabupaten/Kota, Tahun', 'Total sampah (ton/hari)'])
 # Ngepisah kolom 'Kabupaten/kota,tahun' menjadi dua kolom
@@ -52,3 +52,8 @@ df_tot_sampah_prkab[['Kabupaten/Kota', 'Tahun']] = pd.DataFrame(df_tot_sampah_pr
 df_tot_sampah_prkab = df_tot_sampah_prkab.drop(columns=['Kabupaten/Kota, Tahun'])
 # membuat ulang kolomnya
 df_tot_sampah_prkab = df_tot_sampah_prkab[['Kabupaten/Kota', 'Tahun', 'Total sampah (ton/hari)']]
+# Mengkonversikan dataframe ke bentuk exel dan csv
+df_tot_sampah_perthn.to_excel('Total_sampah_Pertahun.xlsx')
+df_tot_sampah_perthn.to_csv('Total_sampah_Pertahun.csv')
+df_tot_sampah_prkab.to_excel('Total_sampah_PerkabupatenKota_Pertahun.xlsx')
+df_tot_sampah_prkab.to_csv('Total_sampah_PerkabupatenKota_Pertahun.csv')
