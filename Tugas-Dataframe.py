@@ -3,7 +3,7 @@ import pandas as pd
 df_sampah_provinsi = pd.read_excel('data_jumlah_produksi_sampah_berdasarkan_kabupatenkota.xlsx')
 # Memprint dan mengubah data ke string sehingga bisa dimunculkan di terminal
 print(df_sampah_provinsi.to_string(index=False))
-
+# memfilter data hanya kolom id jml produksi sampah satuan dan tahun yang hanya ditampilkan
 df_sampah_prov_thn = df_sampah_provinsi.loc[:,['id','jumlah_produksi_sampah','satuan','tahun']]
 # untuk menghitung di tahun 2016
 tot_sampah = 0
